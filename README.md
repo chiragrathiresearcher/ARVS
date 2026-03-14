@@ -142,14 +142,16 @@ colcon build   # requires ROS2 Humble or Iron
 @software{rathi2025arvs,
   author  = {Rathi, Chirag},
   title   = {ARVS: Adaptive Robust Verification System},
-  year    = {2025},
-  url     = {https://github.com/chiragrathiresearcher/ARVS},
+  year    = {2026},
+   doi     = {10.5281/zenodo.19023905},
+  url     = {https://doi.org/10.5281/zenodo.19023905},,
   license = {Apache-2.0},
   orcid   = {0009-0008-1682-4369}
 }
 ```
 
 **Chirag Rathi** — Independent Researcher  
-chiragrathiresearcher@gmail.com | ORCID: 0009-0008-1682-4369
+chiragrathiresearcher@gmail.com 
+ORCID: 0009-0008-1682-4369
 
 *Apache-2.0 License*

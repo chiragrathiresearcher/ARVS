@@ -1,10 +1,11 @@
 cff-version: 1.2.0
-message: "If you use the ARVS-codebase, please cite it as follows."
-authors:
-- family-names: Rathi
-  given-names:  Chirag 
-title: "ARVS: Adaptive Robust Verification System"
-version: 1.0.0
-date-released: 2026-03-07
-url: "https://github.com/Chiragrathiresearcher/ARVS"
-license: Apache-2.0
+message: "If you use the ARVS, cite it as follows."
+@software{rathi2026arvs,
+  author  = {Rathi, Chirag},
+  title   = {ARVS: Adaptive Robust Verification System},
+  year    = {2026},
+  doi     = {10.5281/zenodo.19023905},
+  url     = {https://doi.org/10.5281/zenodo.19023905},
+  license = {Apache-2.0},
+  orcid   = {0009-0008-1682-4369}
+}

@@ -1,0 +1,141 @@
+{
+  "scenario": "Normal Operations",
+  "source": "SYNTHETIC_MEX",
+  "pass": false,
+  "failure_reason": "Normal ops: 4 unexpected gate blocks",
+  "summary": {
+    "scenario": "Normal Operations",
+    "source": "SYNTHETIC_MEX",
+    "total_frames": 200,
+    "gate_blocks": 4,
+    "gate_block_rate": 0.02,
+    "axiom_failure_frames": 0,
+    "avg_risk_score": 0.0077,
+    "max_risk_score": 0.0198,
+    "max_temperature_k": 333.0,
+    "min_battery_level": 0.55,
+    "safe_hold_triggered": false,
+    "pass": false,
+    "failure_reason": "Normal ops: 4 unexpected gate blocks"
+  },
+  "forensic_log": [
+    {
+      "t": 0.0,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 120.96,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 241.92,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 362.88,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    }
+  ],
+  "anomalous_steps": [
+    {
+      "frame": 0,
+      "t": 0.0,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 1,
+      "t": 120.96,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 2,
+      "t": 241.92,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 3,
+      "t": 362.88,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    }
+  ]
+}

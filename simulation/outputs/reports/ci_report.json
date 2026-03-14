@@ -1,0 +1,325 @@
+{
+  "overall_pass": false,
+  "scenarios": [
+    {
+      "scenario": "Normal Operations",
+      "source": "SYNTHETIC_REMS",
+      "pass": true,
+      "summary": {
+        "scenario": "Normal Operations",
+        "source": "SYNTHETIC_REMS",
+        "total_frames": 200,
+        "gate_blocks": 0,
+        "gate_block_rate": 0.0,
+        "axiom_failure_frames": 0,
+        "avg_risk_score": 0.0085,
+        "max_risk_score": 0.011,
+        "max_temperature_k": 305.0,
+        "min_battery_level": 0.5583,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+      "source": "SYNTHETIC_REMS",
+      "pass": true,
+      "summary": {
+        "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+        "source": "SYNTHETIC_REMS",
+        "total_frames": 200,
+        "gate_blocks": 12,
+        "gate_block_rate": 0.06,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0102,
+        "max_risk_score": 0.0392,
+        "max_temperature_k": 305.0,
+        "min_battery_level": 0.5583,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Communication Blackout",
+      "source": "SYNTHETIC_REMS",
+      "pass": true,
+      "summary": {
+        "scenario": "Communication Blackout",
+        "source": "SYNTHETIC_REMS",
+        "total_frames": 200,
+        "gate_blocks": 11,
+        "gate_block_rate": 0.055,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0101,
+        "max_risk_score": 0.0392,
+        "max_temperature_k": 305.0,
+        "min_battery_level": 0.5583,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+      "source": "SYNTHETIC_REMS",
+      "pass": true,
+      "summary": {
+        "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+        "source": "SYNTHETIC_REMS",
+        "total_frames": 200,
+        "gate_blocks": 134,
+        "gate_block_rate": 0.67,
+        "axiom_failure_frames": 134,
+        "avg_risk_score": 0.0101,
+        "max_risk_score": 0.0392,
+        "max_temperature_k": 305.0,
+        "min_battery_level": 0.5583,
+        "safe_hold_triggered": true,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Normal Operations",
+      "source": "SYNTHETIC_ORBIT",
+      "pass": true,
+      "summary": {
+        "scenario": "Normal Operations",
+        "source": "SYNTHETIC_ORBIT",
+        "total_frames": 100,
+        "gate_blocks": 0,
+        "gate_block_rate": 0.0,
+        "axiom_failure_frames": 0,
+        "avg_risk_score": 0.0089,
+        "max_risk_score": 0.0107,
+        "max_temperature_k": 310.0,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+      "source": "SYNTHETIC_ORBIT",
+      "pass": true,
+      "summary": {
+        "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+        "source": "SYNTHETIC_ORBIT",
+        "total_frames": 100,
+        "gate_blocks": 12,
+        "gate_block_rate": 0.12,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0117,
+        "max_risk_score": 0.0442,
+        "max_temperature_k": 310.0,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Communication Blackout",
+      "source": "SYNTHETIC_ORBIT",
+      "pass": true,
+      "summary": {
+        "scenario": "Communication Blackout",
+        "source": "SYNTHETIC_ORBIT",
+        "total_frames": 100,
+        "gate_blocks": 11,
+        "gate_block_rate": 0.11,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0115,
+        "max_risk_score": 0.0442,
+        "max_temperature_k": 310.0,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+      "source": "SYNTHETIC_ORBIT",
+      "pass": true,
+      "summary": {
+        "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+        "source": "SYNTHETIC_ORBIT",
+        "total_frames": 100,
+        "gate_blocks": 33,
+        "gate_block_rate": 0.33,
+        "axiom_failure_frames": 33,
+        "avg_risk_score": 0.0115,
+        "max_risk_score": 0.0442,
+        "max_temperature_k": 310.0,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": true,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Normal Operations",
+      "source": "SYNTHETIC_MEX",
+      "pass": false,
+      "summary": {
+        "scenario": "Normal Operations",
+        "source": "SYNTHETIC_MEX",
+        "total_frames": 200,
+        "gate_blocks": 4,
+        "gate_block_rate": 0.02,
+        "axiom_failure_frames": 0,
+        "avg_risk_score": 0.0077,
+        "max_risk_score": 0.0198,
+        "max_temperature_k": 333.0,
+        "min_battery_level": 0.55,
+        "safe_hold_triggered": false,
+        "pass": false,
+        "failure_reason": "Normal ops: 4 unexpected gate blocks"
+      }
+    },
+    {
+      "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+      "source": "SYNTHETIC_MEX",
+      "pass": true,
+      "summary": {
+        "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+        "source": "SYNTHETIC_MEX",
+        "total_frames": 200,
+        "gate_blocks": 16,
+        "gate_block_rate": 0.08,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.009,
+        "max_risk_score": 0.0323,
+        "max_temperature_k": 333.0,
+        "min_battery_level": 0.55,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Communication Blackout",
+      "source": "SYNTHETIC_MEX",
+      "pass": true,
+      "summary": {
+        "scenario": "Communication Blackout",
+        "source": "SYNTHETIC_MEX",
+        "total_frames": 200,
+        "gate_blocks": 15,
+        "gate_block_rate": 0.075,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0089,
+        "max_risk_score": 0.0293,
+        "max_temperature_k": 333.0,
+        "min_battery_level": 0.55,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+      "source": "SYNTHETIC_MEX",
+      "pass": true,
+      "summary": {
+        "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+        "source": "SYNTHETIC_MEX",
+        "total_frames": 200,
+        "gate_blocks": 137,
+        "gate_block_rate": 0.685,
+        "axiom_failure_frames": 133,
+        "avg_risk_score": 0.0089,
+        "max_risk_score": 0.0293,
+        "max_temperature_k": 333.0,
+        "min_battery_level": 0.55,
+        "safe_hold_triggered": true,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Normal Operations",
+      "source": "SYNTHETIC_ISS",
+      "pass": true,
+      "summary": {
+        "scenario": "Normal Operations",
+        "source": "SYNTHETIC_ISS",
+        "total_frames": 200,
+        "gate_blocks": 0,
+        "gate_block_rate": 0.0,
+        "axiom_failure_frames": 0,
+        "avg_risk_score": 0.0069,
+        "max_risk_score": 0.007,
+        "max_temperature_k": 294.5,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+      "source": "SYNTHETIC_ISS",
+      "pass": true,
+      "summary": {
+        "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+        "source": "SYNTHETIC_ISS",
+        "total_frames": 200,
+        "gate_blocks": 12,
+        "gate_block_rate": 0.06,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0083,
+        "max_risk_score": 0.0308,
+        "max_temperature_k": 294.5,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Communication Blackout",
+      "source": "SYNTHETIC_ISS",
+      "pass": true,
+      "summary": {
+        "scenario": "Communication Blackout",
+        "source": "SYNTHETIC_ISS",
+        "total_frames": 200,
+        "gate_blocks": 11,
+        "gate_block_rate": 0.055,
+        "axiom_failure_frames": 11,
+        "avg_risk_score": 0.0082,
+        "max_risk_score": 0.0302,
+        "max_temperature_k": 294.5,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": false,
+        "pass": true,
+        "failure_reason": ""
+      }
+    },
+    {
+      "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+      "source": "SYNTHETIC_ISS",
+      "pass": true,
+      "summary": {
+        "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+        "source": "SYNTHETIC_ISS",
+        "total_frames": 200,
+        "gate_blocks": 132,
+        "gate_block_rate": 0.66,
+        "axiom_failure_frames": 132,
+        "avg_risk_score": 0.0082,
+        "max_risk_score": 0.0302,
+        "max_temperature_k": 294.5,
+        "min_battery_level": 0.65,
+        "safe_hold_triggered": true,
+        "pass": true,
+        "failure_reason": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+  "expected_blocks": 1,
+  "missed_blocks": 0,
+  "spurious_blocks": 0,
+  "audit_pass": true,
+  "missed_at_frames": [],
+  "spurious_at_frames": []
+}

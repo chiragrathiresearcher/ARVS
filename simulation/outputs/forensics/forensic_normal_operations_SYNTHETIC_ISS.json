@@ -1,0 +1,23 @@
+{
+  "scenario": "Normal Operations",
+  "source": "SYNTHETIC_ISS",
+  "pass": true,
+  "failure_reason": "",
+  "summary": {
+    "scenario": "Normal Operations",
+    "source": "SYNTHETIC_ISS",
+    "total_frames": 200,
+    "gate_blocks": 0,
+    "gate_block_rate": 0.0,
+    "axiom_failure_frames": 0,
+    "avg_risk_score": 0.0069,
+    "max_risk_score": 0.007,
+    "max_temperature_k": 294.5,
+    "min_battery_level": 0.65,
+    "safe_hold_triggered": false,
+    "pass": true,
+    "failure_reason": ""
+  },
+  "forensic_log": [],
+  "anomalous_steps": []
+}

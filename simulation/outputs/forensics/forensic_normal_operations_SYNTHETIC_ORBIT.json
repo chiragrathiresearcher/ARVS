@@ -1,0 +1,23 @@
+{
+  "scenario": "Normal Operations",
+  "source": "SYNTHETIC_ORBIT",
+  "pass": true,
+  "failure_reason": "",
+  "summary": {
+    "scenario": "Normal Operations",
+    "source": "SYNTHETIC_ORBIT",
+    "total_frames": 100,
+    "gate_blocks": 0,
+    "gate_block_rate": 0.0,
+    "axiom_failure_frames": 0,
+    "avg_risk_score": 0.0089,
+    "max_risk_score": 0.0107,
+    "max_temperature_k": 310.0,
+    "min_battery_level": 0.65,
+    "safe_hold_triggered": false,
+    "pass": true,
+    "failure_reason": ""
+  },
+  "forensic_log": [],
+  "anomalous_steps": []
+}

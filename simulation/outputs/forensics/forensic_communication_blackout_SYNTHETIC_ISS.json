@@ -1,0 +1,476 @@
+{
+  "scenario": "Communication Blackout",
+  "source": "SYNTHETIC_ISS",
+  "pass": true,
+  "failure_reason": "",
+  "summary": {
+    "scenario": "Communication Blackout",
+    "source": "SYNTHETIC_ISS",
+    "total_frames": 200,
+    "gate_blocks": 11,
+    "gate_block_rate": 0.055,
+    "axiom_failure_frames": 11,
+    "avg_risk_score": 0.0082,
+    "max_risk_score": 0.0302,
+    "max_temperature_k": 294.5,
+    "min_battery_level": 0.65,
+    "safe_hold_triggered": false,
+    "pass": true,
+    "failure_reason": ""
+  },
+  "forensic_log": [
+    {
+      "t": 2222.4,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030246756824324473
+    },
+    {
+      "t": 2250.1800000000003,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030237334689294463
+    },
+    {
+      "t": 2277.96,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030227712138172567
+    },
+    {
+      "t": 2305.7400000000002,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030217898850009438
+    },
+    {
+      "t": 2333.52,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030207904686634757
+    },
+    {
+      "t": 2361.3,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030197739682224573
+    },
+    {
+      "t": 2389.08,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030187414032723306
+    },
+    {
+      "t": 2416.86,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.03017693808513425
+    },
+    {
+      "t": 2444.6400000000003,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.030166322326690604
+    },
+    {
+      "t": 2472.42,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.03015557737392112
+    },
+    {
+      "t": 2500.2000000000003,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.03014471396162293
+    }
+  ],
+  "anomalous_steps": [
+    {
+      "frame": 80,
+      "t": 2222.4,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.29,
+      "battery_pct": 68.3
+    },
+    {
+      "frame": 81,
+      "t": 2250.18,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.28,
+      "battery_pct": 68.0
+    },
+    {
+      "frame": 82,
+      "t": 2277.96,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.27,
+      "battery_pct": 67.7
+    },
+    {
+      "frame": 83,
+      "t": 2305.74,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.25,
+      "battery_pct": 67.4
+    },
+    {
+      "frame": 84,
+      "t": 2333.52,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.24,
+      "battery_pct": 67.2
+    },
+    {
+      "frame": 85,
+      "t": 2361.3,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.23,
+      "battery_pct": 66.9
+    },
+    {
+      "frame": 86,
+      "t": 2389.08,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.21,
+      "battery_pct": 66.7
+    },
+    {
+      "frame": 87,
+      "t": 2416.86,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.2,
+      "battery_pct": 66.4
+    },
+    {
+      "frame": 88,
+      "t": 2444.64,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.18,
+      "battery_pct": 66.2
+    },
+    {
+      "frame": 89,
+      "t": 2472.42,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0302,
+      "confidence": 0.4,
+      "temp_k": 294.17,
+      "battery_pct": 66.0
+    },
+    {
+      "frame": 90,
+      "t": 2500.2,
+      "events": [
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0301,
+      "confidence": 0.4,
+      "temp_k": 294.15,
+      "battery_pct": 65.9
+    }
+  ]
+}

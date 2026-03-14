@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Experience database (generated at runtime)
+experience.db
+
+# C++ build
+cpp/build/
+cpp/install/
+cpp/log/
+*.o
+*.a
+*.so
+
+# Simulation generated outputs (re-run to regenerate)
+# Plots are excluded — large PNGs, regenerate with run_simulation.py
+simulation/outputs/plots/*.png
+
+# Test temp files
+*.tmp
+*.db.test
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

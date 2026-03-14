@@ -1,0 +1,9 @@
+{
+  "scenario": "Axiom Violation Cascade \u2192 Safe Hold",
+  "expected_blocks": 0,
+  "missed_blocks": 0,
+  "spurious_blocks": 0,
+  "audit_pass": true,
+  "missed_at_frames": [],
+  "spurious_at_frames": []
+}

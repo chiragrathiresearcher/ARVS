@@ -1,0 +1,358 @@
+"""
+report.py
+ARVS Simulation — Output: Time-Series Plots + Forensic JSON + CI Report
+
+Outputs for each scenario × data source:
+  1. Multi-panel time-series plot (PNG)
+     - Temperature, battery, risk score, gate pass/fail, confidence, events
+  2. Forensic JSON trail
+  3. CI-compatible pass/fail report (JSON + text)
+"""
+
+import os
+import json
+import math
+import logging
+from typing import List, Dict
+
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")  # non-interactive, safe for headless CI
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.gridspec import GridSpec
+
+from simulation.engine.simulation_engine import SimulationResult, StepResult
+
+logger = logging.getLogger(__name__)
+
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "outputs")
+
+
+def ensure_output_dir():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. Multi-panel time-series plot
+# ─────────────────────────────────────────────────────────────────────────────
+
+PANEL_STYLE = {
+    "figure.facecolor":  "#0d1117",
+    "axes.facecolor":    "#161b22",
+    "axes.edgecolor":    "#30363d",
+    "axes.labelcolor":   "#e6edf3",
+    "text.color":        "#e6edf3",
+    "xtick.color":       "#8b949e",
+    "ytick.color":       "#8b949e",
+    "grid.color":        "#21262d",
+    "grid.linestyle":    "--",
+    "grid.alpha":        0.5,
+    "lines.linewidth":   1.6,
+    "font.family":       "monospace",
+}
+
+
+def plot_scenario(result: SimulationResult,
+                  filename_prefix: str = "") -> str:
+    """
+    Create a 6-panel diagnostic plot for one scenario × source.
+    Returns the path of the saved PNG.
+    """
+    ensure_output_dir()
+
+    steps = result.steps
+    t     = [s.mission_time_s for s in steps]
+    n     = len(steps)
+
+    # Determine safe plot indices (guard against empty)
+    if n == 0:
+        logger.warning("No steps to plot")
+        return ""
+
+    # ── Data series ──────────────────────────────────────────────────────────
+    temp        = [s.temperature_k        for s in steps]
+    batt        = [s.battery_level * 100  for s in steps]   # → %
+    risk        = [s.risk_score           for s in steps]
+    confidence  = [s.confidence           for s in steps]
+    gate_ok     = [1 if s.gate_passed else 0 for s in steps]
+    axiom_fails = [len(s.axiom_failures)  for s in steps]
+
+    # Event markers
+    fault_t     = [s.mission_time_s for s in steps if s.fault_active]
+    blackout_t  = [s.mission_time_s for s in steps if s.blackout_active]
+    block_t     = [s.mission_time_s for s in steps if not s.gate_passed]
+    safehold_t  = [s.mission_time_s for s in steps
+                   if "SAFE_HOLD" in s.system_mode]
+
+    with plt.rc_context(PANEL_STYLE):
+        fig = plt.figure(figsize=(18, 14))
+        fig.suptitle(
+            f"ARVS SIMULATION — {result.scenario.upper()}\n"
+            f"Source: {result.source}   |   "
+            f"Frames: {result.total_frames}   |   "
+            f"Gate blocks: {result.summary['gate_blocks']}   |   "
+            f"Result: {'✓ PASS' if result.pass_fail else '✗ FAIL'}",
+            fontsize=12, fontweight="bold",
+            color="#58a6ff" if result.pass_fail else "#f85149",
+            y=0.98
+        )
+
+        gs = GridSpec(4, 2, figure=fig,
+                      hspace=0.45, wspace=0.35,
+                      left=0.07, right=0.97, top=0.92, bottom=0.06)
+
+        # ── Panel 1: Temperature ──────────────────────────────────────────
+        ax1 = fig.add_subplot(gs[0, 0])
+        ax1.plot(t, temp, color="#ff7b72", label="Temp (K)")
+        ax1.axhline(373.0 * 0.90, color="#f85149", ls="--", lw=1.2, label="Limit (90%)")
+        ax1.axhline(373.0,        color="#f85149", ls=":",  lw=0.8, label="Max")
+        _add_event_markers(ax1, fault_t, "#ffa657", "Fault")
+        _add_event_markers(ax1, safehold_t, "#bf8700", "Safe Hold")
+        ax1.set_ylabel("Temperature (K)")
+        ax1.set_title("Thermal")
+        ax1.legend(fontsize=7, loc="upper right")
+        ax1.grid(True)
+
+        # ── Panel 2: Battery ──────────────────────────────────────────────
+        ax2 = fig.add_subplot(gs[0, 1])
+        ax2.plot(t, batt, color="#3fb950", label="Battery (%)")
+        ax2.fill_between(t, batt, alpha=0.15, color="#3fb950")
+        ax2.axhline(35.0, color="#f85149", ls="--", lw=1.2, label="Min limit (35%)")
+        _add_event_markers(ax2, block_t, "#f85149", "Blocked")
+        ax2.set_ylabel("State of Charge (%)")
+        ax2.set_title("Power / Battery")
+        ax2.set_ylim(0, 110)
+        ax2.legend(fontsize=7, loc="upper right")
+        ax2.grid(True)
+
+        # ── Panel 3: Risk Score ───────────────────────────────────────────
+        ax3 = fig.add_subplot(gs[1, 0])
+        risk_arr = np.array(risk)
+        ax3.plot(t, risk, color="#79c0ff", label="Risk score")
+        ax3.fill_between(t, risk, alpha=0.15, color="#79c0ff")
+        # Colour threshold zones
+        ax3.axhspan(0.0, 0.3,  alpha=0.08, color="#3fb950")
+        ax3.axhspan(0.3, 0.6,  alpha=0.08, color="#d29922")
+        ax3.axhspan(0.6, 1.0,  alpha=0.08, color="#f85149")
+        ax3.axhline(0.6, color="#f85149", ls="--", lw=1.2, label="High risk thr")
+        ax3.set_ylabel("Risk Score [0–1]")
+        ax3.set_title("8-Dimensional Risk")
+        ax3.set_ylim(0, 1.05)
+        ax3.legend(fontsize=7)
+        ax3.grid(True)
+
+        # ── Panel 4: Confidence ───────────────────────────────────────────
+        ax4 = fig.add_subplot(gs[1, 1])
+        ax4.plot(t, confidence, color="#d2a8ff", label="Confidence")
+        ax4.fill_between(t, confidence, alpha=0.15, color="#d2a8ff")
+        ax4.axhline(0.30, color="#f85149", ls="--", lw=1.2, label="Safe-hold thr")
+        ax4.axhline(0.95, color="#ffa657", ls=":",  lw=0.8, label="Irrev. thr")
+        _add_event_markers(ax4, safehold_t, "#bf8700", "Safe Hold")
+        ax4.set_ylabel("Confidence [0–1]")
+        ax4.set_title("Epistemic Confidence")
+        ax4.set_ylim(0, 1.05)
+        ax4.legend(fontsize=7)
+        ax4.grid(True)
+
+        # ── Panel 5: Gate pass/fail bar chart ─────────────────────────────
+        ax5 = fig.add_subplot(gs[2, :])
+        colors = ["#3fb950" if g else "#f85149" for g in gate_ok]
+        ax5.bar(t, [1] * n, width=(t[-1] - t[0]) / n if n > 1 else 1,
+                color=colors, align="edge", linewidth=0)
+        # Blackout shading
+        for bt in blackout_t:
+            ax5.axvline(bt, color="#d29922", alpha=0.4, lw=0.5)
+        ax5.set_yticks([])
+        ax5.set_ylabel("Gate (green=pass)")
+        ax5.set_title("Safety Gate Decision Timeline")
+        ax5.set_xlim(t[0], t[-1])
+
+        green_patch = mpatches.Patch(color="#3fb950", label="Pass")
+        red_patch   = mpatches.Patch(color="#f85149", label="Blocked")
+        gold_patch  = mpatches.Patch(color="#d29922", label="Comm blackout")
+        ax5.legend(handles=[green_patch, red_patch, gold_patch],
+                   fontsize=8, loc="upper right")
+
+        # ── Panel 6: Axiom failure count ──────────────────────────────────
+        ax6 = fig.add_subplot(gs[3, :])
+        ax6.fill_between(t, axiom_fails, step="mid", alpha=0.7,
+                         color="#ffa657", label="Axiom failures")
+        ax6.plot(t, axiom_fails, color="#ffa657", lw=0.8, drawstyle="steps-mid")
+        ax6.set_ylabel("# Axiom Failures")
+        ax6.set_xlabel("Mission Time (s)")
+        ax6.set_title("Axiom Validation — Failure Count per Step")
+        ax6.set_ylim(0, max(max(axiom_fails) + 1, 5))
+        ax6.legend(fontsize=8)
+        ax6.grid(True)
+
+        # ── Shared x-axis labels ──────────────────────────────────────────
+        for ax in [ax1, ax2, ax3, ax4]:
+            ax.set_xlabel("Mission Time (s)", fontsize=8)
+
+        # ── Failure annotation ────────────────────────────────────────────
+        if not result.pass_fail:
+            fig.text(0.5, 0.01,
+                     f"FAILURE: {result.failure_reason}",
+                     ha="center", fontsize=10, color="#f85149",
+                     bbox=dict(facecolor="#161b22", edgecolor="#f85149", pad=4))
+
+        slug = (result.scenario.lower()
+                .replace(" ", "_")
+                .replace("—", "")
+                .replace("/", "_")
+                .replace("→", "")
+                .replace("+", ""))
+        slug = "_".join(slug.split())[:60]
+        src  = result.source.replace("/", "_")[:20]
+        fname = os.path.join(OUTPUT_DIR, f"{slug}_{src}.png")
+
+        fig.savefig(fname, dpi=150, bbox_inches="tight",
+                    facecolor=fig.get_facecolor())
+        plt.close(fig)
+        logger.info(f"Saved plot: {fname}")
+        return fname
+
+
+def _add_event_markers(ax, times, color, label):
+    if not times:
+        return
+    ax.axvline(times[0], color=color, lw=1.5, ls="--",
+               label=label, alpha=0.85)
+    for t in times[1:]:
+        ax.axvline(t, color=color, lw=0.8, ls="--", alpha=0.5)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. Forensic JSON
+# ─────────────────────────────────────────────────────────────────────────────
+
+def write_forensic_json(result: SimulationResult) -> str:
+    ensure_output_dir()
+    slug = result.scenario.lower().replace(" ", "_")[:50]
+    src  = result.source[:20]
+    fname = os.path.join(OUTPUT_DIR, f"forensic_{slug}_{src}.json")
+
+    payload = {
+        "scenario":      result.scenario,
+        "source":        result.source,
+        "pass":          result.pass_fail,
+        "failure_reason": result.failure_reason,
+        "summary":       result.summary,
+        "forensic_log":  result.forensic_log,
+        "step_events":   [
+            {
+                "frame": s.frame_idx,
+                "t":     round(s.mission_time_s, 3),
+                "events": s.events,
+                "gate_violations": s.gate_violations,
+                "axiom_failures": s.axiom_failures,
+                "risk": round(s.risk_score, 4),
+            }
+            for s in result.steps
+            if s.events or not s.gate_passed or s.axiom_failures
+        ]
+    }
+    with open(fname, "w") as f:
+        json.dump(payload, f, indent=2)
+    logger.info(f"Saved forensic JSON: {fname}")
+    return fname
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. CI pass/fail report
+# ─────────────────────────────────────────────────────────────────────────────
+
+def write_ci_report(all_results: List[SimulationResult]) -> str:
+    ensure_output_dir()
+    report_lines = []
+    report_lines.append("=" * 80)
+    report_lines.append("ARVS SIMULATION — CI PASS/FAIL REPORT")
+    report_lines.append("=" * 80)
+    report_lines.append("")
+
+    overall_pass = True
+    json_records = []
+
+    for r in all_results:
+        status = "PASS ✓" if r.pass_fail else "FAIL ✗"
+        if not r.pass_fail:
+            overall_pass = False
+
+        report_lines.append(f"  Scenario : {r.scenario}")
+        report_lines.append(f"  Source   : {r.source}")
+        report_lines.append(f"  Status   : {status}")
+        report_lines.append(f"  Frames   : {r.total_frames}")
+        report_lines.append(f"  Blocks   : {r.summary['gate_blocks']}")
+        report_lines.append(f"  Avg Risk : {r.summary['avg_risk_score']:.4f}")
+        report_lines.append(f"  Max Risk : {r.summary['max_risk_score']:.4f}")
+        report_lines.append(f"  Max Temp : {r.summary['max_temperature_k']:.1f} K")
+        report_lines.append(f"  Min Batt : {r.summary['min_battery_level']*100:.1f}%")
+        if not r.pass_fail:
+            report_lines.append(f"  Reason   : {r.failure_reason}")
+        report_lines.append("")
+
+        json_records.append({
+            "scenario": r.scenario,
+            "source":   r.source,
+            "pass":     r.pass_fail,
+            "summary":  r.summary,
+        })
+
+    report_lines.append("─" * 80)
+    report_lines.append(
+        f"  OVERALL: {'ALL SCENARIOS PASSED ✓' if overall_pass else 'ONE OR MORE FAILURES ✗'}")
+    report_lines.append("─" * 80)
+
+    txt_path  = os.path.join(OUTPUT_DIR, "ci_report.txt")
+    json_path = os.path.join(OUTPUT_DIR, "ci_report.json")
+
+    with open(txt_path,  "w") as f:
+        f.write("\n".join(report_lines))
+    with open(json_path, "w") as f:
+        json.dump({
+            "overall_pass": overall_pass,
+            "scenarios":    json_records
+        }, f, indent=2)
+
+    logger.info(f"CI report: {txt_path}")
+    return txt_path
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. Audit log validation
+# ─────────────────────────────────────────────────────────────────────────────
+
+def validate_audit_log(result: SimulationResult) -> Dict:
+    """
+    Check that the gate blocked every action it should have blocked,
+    and did not block any action it should have passed.
+    Returns a dict with validation results.
+    """
+    expected_blocks  = []
+    unexpected_blocks = []
+    missed_blocks    = []
+
+    for s in result.steps:
+        should_block = s.fault_active or (not s.sensor_healthy and s.confidence < 0.4)
+        did_block    = not s.gate_passed
+
+        if should_block and did_block:
+            expected_blocks.append(s.frame_idx)
+        elif should_block and not did_block:
+            missed_blocks.append(s.frame_idx)
+        elif not should_block and did_block:
+            # Check if there's a legitimate axiom reason
+            axiom_reason = any("AXIOM" in v.get("type", "") for v in s.gate_violations)
+            if not axiom_reason:
+                unexpected_blocks.append(s.frame_idx)
+
+    return {
+        "scenario":             result.scenario,
+        "expected_blocks":      len(expected_blocks),
+        "missed_blocks":        len(missed_blocks),
+        "unexpected_blocks":    len(unexpected_blocks),
+        "audit_pass":           len(missed_blocks) == 0,
+        "missed_at_frames":     missed_blocks[:10],
+        "unexpected_at_frames": unexpected_blocks[:10],
+    }

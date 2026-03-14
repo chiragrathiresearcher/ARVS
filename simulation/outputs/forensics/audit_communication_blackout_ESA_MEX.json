@@ -1,0 +1,14 @@
+{
+  "scenario": "Communication Blackout",
+  "expected_blocks": 0,
+  "missed_blocks": 0,
+  "spurious_blocks": 4,
+  "audit_pass": true,
+  "missed_at_frames": [],
+  "spurious_at_frames": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

@@ -1,0 +1,184 @@
+================================================================================
+ARVS SIMULATION  —  CI PASS / FAIL REPORT
+================================================================================
+
+  Scenario  : Normal Operations
+  Source    : SYNTHETIC_REMS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 0 (0.0%)
+  Avg Risk  : 0.0085
+  Max Risk  : 0.0110
+  Max Temp  : 305.0 K
+  Min Batt  : 55.8%
+  Safe Hold : False
+
+  Scenario  : Fault Injection — Torque Spike + Sensor Dropout
+  Source    : SYNTHETIC_REMS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 12 (6.0%)
+  Avg Risk  : 0.0102
+  Max Risk  : 0.0392
+  Max Temp  : 305.0 K
+  Min Batt  : 55.8%
+  Safe Hold : False
+
+  Scenario  : Communication Blackout
+  Source    : SYNTHETIC_REMS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 11 (5.5%)
+  Avg Risk  : 0.0101
+  Max Risk  : 0.0392
+  Max Temp  : 305.0 K
+  Min Batt  : 55.8%
+  Safe Hold : False
+
+  Scenario  : Axiom Violation Cascade → Safe Hold
+  Source    : SYNTHETIC_REMS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 134 (67.0%)
+  Avg Risk  : 0.0101
+  Max Risk  : 0.0392
+  Max Temp  : 305.0 K
+  Min Batt  : 55.8%
+  Safe Hold : True
+
+  Scenario  : Normal Operations
+  Source    : SYNTHETIC_ORBIT
+  Status    : PASS ✓
+  Frames    : 100
+  Blocks    : 0 (0.0%)
+  Avg Risk  : 0.0089
+  Max Risk  : 0.0107
+  Max Temp  : 310.0 K
+  Min Batt  : 65.0%
+  Safe Hold : False
+
+  Scenario  : Fault Injection — Torque Spike + Sensor Dropout
+  Source    : SYNTHETIC_ORBIT
+  Status    : PASS ✓
+  Frames    : 100
+  Blocks    : 12 (12.0%)
+  Avg Risk  : 0.0117
+  Max Risk  : 0.0442
+  Max Temp  : 310.0 K
+  Min Batt  : 65.0%
+  Safe Hold : False
+
+  Scenario  : Communication Blackout
+  Source    : SYNTHETIC_ORBIT
+  Status    : PASS ✓
+  Frames    : 100
+  Blocks    : 11 (11.0%)
+  Avg Risk  : 0.0115
+  Max Risk  : 0.0442
+  Max Temp  : 310.0 K
+  Min Batt  : 65.0%
+  Safe Hold : False
+
+  Scenario  : Axiom Violation Cascade → Safe Hold
+  Source    : SYNTHETIC_ORBIT
+  Status    : PASS ✓
+  Frames    : 100
+  Blocks    : 33 (33.0%)
+  Avg Risk  : 0.0115
+  Max Risk  : 0.0442
+  Max Temp  : 310.0 K
+  Min Batt  : 65.0%
+  Safe Hold : True
+
+  Scenario  : Normal Operations
+  Source    : SYNTHETIC_MEX
+  Status    : FAIL ✗
+  Frames    : 200
+  Blocks    : 4 (2.0%)
+  Avg Risk  : 0.0077
+  Max Risk  : 0.0198
+  Max Temp  : 333.0 K
+  Min Batt  : 55.0%
+  Safe Hold : False
+  !! REASON : Normal ops: 4 unexpected gate blocks
+
+  Scenario  : Fault Injection — Torque Spike + Sensor Dropout
+  Source    : SYNTHETIC_MEX
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 16 (8.0%)
+  Avg Risk  : 0.0090
+  Max Risk  : 0.0323
+  Max Temp  : 333.0 K
+  Min Batt  : 55.0%
+  Safe Hold : False
+
+  Scenario  : Communication Blackout
+  Source    : SYNTHETIC_MEX
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 15 (7.5%)
+  Avg Risk  : 0.0089
+  Max Risk  : 0.0293
+  Max Temp  : 333.0 K
+  Min Batt  : 55.0%
+  Safe Hold : False
+
+  Scenario  : Axiom Violation Cascade → Safe Hold
+  Source    : SYNTHETIC_MEX
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 137 (68.5%)
+  Avg Risk  : 0.0089
+  Max Risk  : 0.0293
+  Max Temp  : 333.0 K
+  Min Batt  : 55.0%
+  Safe Hold : True
+
+  Scenario  : Normal Operations
+  Source    : SYNTHETIC_ISS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 0 (0.0%)
+  Avg Risk  : 0.0069
+  Max Risk  : 0.0070
+  Max Temp  : 294.5 K
+  Min Batt  : 65.0%
+  Safe Hold : False
+
+  Scenario  : Fault Injection — Torque Spike + Sensor Dropout
+  Source    : SYNTHETIC_ISS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 12 (6.0%)
+  Avg Risk  : 0.0083
+  Max Risk  : 0.0308
+  Max Temp  : 294.5 K
+  Min Batt  : 65.0%
+  Safe Hold : False
+
+  Scenario  : Communication Blackout
+  Source    : SYNTHETIC_ISS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 11 (5.5%)
+  Avg Risk  : 0.0082
+  Max Risk  : 0.0302
+  Max Temp  : 294.5 K
+  Min Batt  : 65.0%
+  Safe Hold : False
+
+  Scenario  : Axiom Violation Cascade → Safe Hold
+  Source    : SYNTHETIC_ISS
+  Status    : PASS ✓
+  Frames    : 200
+  Blocks    : 132 (66.0%)
+  Avg Risk  : 0.0082
+  Max Risk  : 0.0302
+  Max Temp  : 294.5 K
+  Min Batt  : 65.0%
+  Safe Hold : True
+
+────────────────────────────────────────────────────────────────────────────────
+  OVERALL : ONE OR MORE FAILURES ✗
+────────────────────────────────────────────────────────────────────────────────

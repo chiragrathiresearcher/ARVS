@@ -1,0 +1,23 @@
+{
+  "scenario": "Normal Operations",
+  "source": "SYNTHETIC_REMS",
+  "pass": true,
+  "failure_reason": "",
+  "summary": {
+    "scenario": "Normal Operations",
+    "source": "SYNTHETIC_REMS",
+    "total_frames": 200,
+    "gate_blocks": 0,
+    "gate_block_rate": 0.0,
+    "axiom_failure_frames": 0,
+    "avg_risk_score": 0.0085,
+    "max_risk_score": 0.011,
+    "max_temperature_k": 305.0,
+    "min_battery_level": 0.5583,
+    "safe_hold_triggered": false,
+    "pass": true,
+    "failure_reason": ""
+  },
+  "forensic_log": [],
+  "anomalous_steps": []
+}

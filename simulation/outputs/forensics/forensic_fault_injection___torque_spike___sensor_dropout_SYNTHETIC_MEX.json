@@ -1,0 +1,683 @@
+{
+  "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+  "source": "SYNTHETIC_MEX",
+  "pass": true,
+  "failure_reason": "",
+  "summary": {
+    "scenario": "Fault Injection \u2014 Torque Spike + Sensor Dropout",
+    "source": "SYNTHETIC_MEX",
+    "total_frames": 200,
+    "gate_blocks": 16,
+    "gate_block_rate": 0.08,
+    "axiom_failure_frames": 11,
+    "avg_risk_score": 0.009,
+    "max_risk_score": 0.0323,
+    "max_temperature_k": 333.0,
+    "min_battery_level": 0.55,
+    "safe_hold_triggered": false,
+    "pass": true,
+    "failure_reason": ""
+  },
+  "forensic_log": [
+    {
+      "t": 0.0,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 120.96,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 241.92,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 362.88,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "risk": 0.019840305734077503
+    },
+    {
+      "t": 6048.0,
+      "event": "TORQUE_SPIKE",
+      "value": 180.0
+    },
+    {
+      "t": 6048.0,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "TORQUE_EXCEEDED",
+          "actual": 180.0,
+          "limit": 80.0
+        }
+      ],
+      "risk": 0.03229546469845053
+    },
+    {
+      "t": 9676.8,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 9676.8,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 9797.76,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 9797.76,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 9918.72,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 9918.72,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10039.68,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10039.68,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10160.64,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10160.64,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10281.6,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10281.6,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10402.56,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10402.56,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10523.519999999999,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10523.519999999999,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10644.48,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10644.48,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10765.439999999999,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10765.439999999999,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    },
+    {
+      "t": 10886.4,
+      "event": "SENSOR_DROPOUT"
+    },
+    {
+      "t": 10886.4,
+      "event": "GATE_BLOCK",
+      "violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "risk": 0.02931223075135632
+    }
+  ],
+  "anomalous_steps": [
+    {
+      "frame": 0,
+      "t": 0.0,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 1,
+      "t": 120.96,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 2,
+      "t": 241.92,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 3,
+      "t": 362.88,
+      "events": [],
+      "gate_violations": [
+        {
+          "type": "TEMPERATURE_EXCEEDED",
+          "actual": 348.0,
+          "limit": 335.7
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0198,
+      "confidence": 0.96,
+      "temp_k": 333.0,
+      "battery_pct": 85.0
+    },
+    {
+      "frame": 50,
+      "t": 6048.0,
+      "events": [
+        "FAULT: torque spike 180.0 N\u00b7m"
+      ],
+      "gate_violations": [
+        {
+          "type": "TORQUE_EXCEEDED",
+          "actual": 180.0,
+          "limit": 80.0
+        }
+      ],
+      "axiom_failures": [],
+      "risk": 0.0323,
+      "confidence": 0.96,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 80,
+      "t": 9676.8,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 81,
+      "t": 9797.76,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 82,
+      "t": 9918.72,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 83,
+      "t": 10039.68,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 84,
+      "t": 10160.64,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 85,
+      "t": 10281.6,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 86,
+      "t": 10402.56,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 87,
+      "t": 10523.52,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 88,
+      "t": 10644.48,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 89,
+      "t": 10765.44,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    },
+    {
+      "frame": 90,
+      "t": 10886.4,
+      "events": [
+        "FAULT: sensor dropout",
+        "AXIOM_VIOLATION: 3 failures"
+      ],
+      "gate_violations": [
+        {
+          "type": "AXIOM_VIOLATION",
+          "failures": [
+            "E3: oscillation=2.50 > 2.0",
+            "C2: conf=0.400 < required=1.000",
+            "Z: 2 failures but mode=NORMAL"
+          ]
+        }
+      ],
+      "axiom_failures": [
+        "E3: oscillation=2.50 > 2.0",
+        "C2: conf=0.400 < required=1.000",
+        "Z: 2 failures but mode=NORMAL"
+      ],
+      "risk": 0.0293,
+      "confidence": 0.4,
+      "temp_k": 273.0,
+      "battery_pct": 55.0
+    }
+  ]
+}

@@ -8,9 +8,6 @@ on:
 
 jobs:
 
-  # ============================================================
-  # Job 1: Python — Lint + Full Test Suite (69 deterministic tests)
-  # ============================================================
   python-tests:
     name: Python Tests
     runs-on: ubuntu-22.04
@@ -45,11 +42,6 @@ jobs:
             --no-header \
             -q
 
-  # ============================================================
-  # Job 2: C++ Core — Standalone build (portable, no ROS2 needed)
-  # Compiles arvs_core library: SafetyGate, AxiomValidator,
-  # WatchdogTimer, ExecutionController
-  # ============================================================
   cpp-core-build:
     name: C++ Core Build
     runs-on: ubuntu-22.04
@@ -73,8 +65,6 @@ jobs:
             -DBUILD_TESTING=OFF \
             -DCMAKE_CXX_FLAGS="-Wall -Wextra -fstack-protector-strong" \
             -DARVS_STANDALONE=ON
-        # ARVS_STANDALONE=ON skips ament/ROS2 node targets
-        # arvs_core static library builds without any ROS2 dependency
 
       - name: Build arvs_core
         working-directory: cpp
@@ -86,9 +76,6 @@ jobs:
           name: arvs-core-lib
           path: cpp/build/libarvs_core.a
 
-  # ============================================================
-  # Job 3: Simulation — All 16 scenarios across 4 telemetry sources
-  # ============================================================
   simulation:
     name: Simulation (16 scenarios)
     runs-on: ubuntu-22.04

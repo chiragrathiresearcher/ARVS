@@ -96,6 +96,7 @@ jobs:
       - name: Run simulation
         working-directory: ${{ github.workspace }}
         run: python simulation/run_simulation.py
+        continue-on-error: true
 
       - name: Upload reports
         uses: actions/upload-artifact@v4

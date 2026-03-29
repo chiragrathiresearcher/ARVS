@@ -64,7 +64,7 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-12 \
             -DBUILD_TESTING=OFF \
             -DARVS_STANDALONE=ON \
-            -DCMAKE_CXX_FLAGS="-Wall -Wextra -fstack-protector-strong -fpermissive -Wno-error"
+            -DCMAKE_CXX_FLAGS="-Wall -Wextra -fstack-protector-strong"
 
       - name: Build arvs_core
         working-directory: cpp
